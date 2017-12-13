@@ -22,7 +22,7 @@ alias right;
 
 // Choose whether relative throttle is enabled
 // Allows absolute throttle to be set using select joystick slider (cruise control)
-// and altering absolute throttle with select joystick axis or rudder.
+// and altering absolute throttle with select joystick axis.
 //
 define REL_THROTTLE_ENABLED   1     // '0' or '1'         (default: '1')
 define REL_THROTTLE_AXIS      JOYY  // 'JOYY' or 'RUDDER' (default: 'JOYY')
@@ -209,7 +209,7 @@ int updateThrottleCurve(int useOldThrottlePos)
         throttleLimitOne = throttleScaleDiff;
         throttleLimitTwo = 100 - throttleScaleDiff;
 
-        // Create curve profile. Invert inputs if using rudder pedals
+        // Create curve profile. Invert inputs if using rudder (Z_AXIS)
         if(REL_THROTTLE_AXIS == JOYY){
             throttleCurve = LIST(0, throttleLimitOne, 50, throttleCenter, 100, throttleLimitTwo);
         } else {
