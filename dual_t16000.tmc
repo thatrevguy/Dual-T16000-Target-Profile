@@ -230,6 +230,9 @@ int updateThrottleCurve(int useOldThrottlePos)
         SetCustomCurve(&REL_THROTTLE_STICK, REL_THROTTLE_AXIS, 0); 
         DXAxis(DX_THROTTLE_AXIS, 0);
         ignoreSlider = 1;
+    } else {
+        // Track absolute throttle position
+        throttlePos = axdata.val;
     }
 }
 
